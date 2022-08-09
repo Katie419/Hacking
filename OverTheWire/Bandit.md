@@ -8,7 +8,7 @@ Link to the site :
   read the documentation on its options and how to use it. Or there is always googling. :p </p><br>
 
 <p align = "center">
-<img src="https://user-images.githubusercontent.com/70291944/183759480-db061ce1-25a7-4054-a1b1-b0add1582407.png"/>
+<img src="https://user-images.githubusercontent.com/70291944/183759480-db061ce1-25a7-4054-a1b1-b0add1582407.png" width="100%" height="100%">
 </p>
 
 <!-- Table of Contents -->
@@ -45,7 +45,7 @@ Link to the site :
   bandit.labs.overthewire.org. Since a port is specified in the directions, I used the -p flag to specify the host port I want to log in to.
 </p>
 <p align = "center">
-<img src="https://user-images.githubusercontent.com/70291944/183766584-5ecbb880-cc4b-4777-8fe8-def9991494a7.png">
+<img src="https://user-images.githubusercontent.com/70291944/183766584-5ecbb880-cc4b-4777-8fe8-def9991494a7.png" width="100%" height="100%">
 </p>
 
 <h3>Resources</h3>
@@ -73,7 +73,7 @@ concatenate, create, and append files
  there is a read me and display its contents using cat
 </p>
 <p align = "center">
-<img src="https://user-images.githubusercontent.com/70291944/183774429-d7323e8f-01d5-40a4-bce0-585d09d966b1.png">
+<img src="https://user-images.githubusercontent.com/70291944/183774429-d7323e8f-01d5-40a4-bce0-585d09d966b1.png" width="100%" height="100%">
 </p>
 <details>
   <summary><strong>Click here to reveal level credentials:<strong></summary>
