@@ -86,7 +86,7 @@ concatenate, create, and append files
 <p>cat command documentation, flags, examples, and uses:
   <a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/">https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/</a>
 </p>
-<p>ls command documentation, flags, examples, and uses
+<p>ls command documentation, flags, examples, and uses:
   <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
 </p>
   
