@@ -9,7 +9,7 @@ Link to the site :
 
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/70291944/183759480-db061ce1-25a7-4054-a1b1-b0add1582407.png"/>
-</p><hr>
+</p>
 
 <!-- Table of Contents -->
 <h2 id="TOC">Table of Contents</h2>
@@ -92,7 +92,7 @@ concatenate, create, and append files
   <a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/">https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/</a>
 </p>
 <p>ls command documentation, flags, examples, and uses
-  <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">[https://www.ssh.com/academy/ssh/command](https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
+  <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
 </p>
   
  <!-- Level 1-2 -->
