@@ -15,10 +15,10 @@ Link to the site :
 <h2 id="TOC">Table of Contents</h2>
 <ul>
   <li>
-    <a href="level0">Level 0: SSH login</a>
+    <a href="#level0">Level 0: SSH login</a>
   </li>
   <li>
-    <a href="level0-1">Level 0 → 1: List and concatenate</a>
+    <a href="#level0-1">Level 0 → 1: List and concatenate</a>
   </li>
 
 
