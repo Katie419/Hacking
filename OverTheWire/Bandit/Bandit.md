@@ -47,11 +47,6 @@ Link to the site :
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/70291944/183766584-5ecbb880-cc4b-4777-8fe8-def9991494a7.png">
 </p>
-<details>
-  <summary><strong>Click here to reveal level credentials:<strong></summary>
-  <p>Username: bandit0
-    <br>Password: bandit0</p>
-</details>
 
 <h3>Resources</h3>
 <p>SSH command options and background info:
