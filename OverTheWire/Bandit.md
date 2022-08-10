@@ -447,7 +447,7 @@ grep [option] [file]
 </details>
 
 <h3>Resources</h3>
-<p>Uniq flags and examples:: 
+<p>Uniq flags and examples: 
   <a href= "https://www.redhat.com/sysadmin/uniq-command-lists">https://www.redhat.com/sysadmin/uniq-command-lists</a>
   <br>Pipe :
   <a href= "https://www.geeksforgeeks.org/piping-in-unix-or-linux/#:~:text=A%20pipe%20is%20a%20form,program%2Fprocess%20for%20further%20processing
@@ -461,33 +461,58 @@ grep [option] [file]
   
 <h3>Notes:</h3>
 <p>strings: retrieves any printable strings
-  <br>Look at notes in:
-  <ul>
-    <li>
-      <a href="#top">Go back to the top</a>
-     
+  <br>
+  <a href="#level_7-8">Look at notes and resources for 7 → 8 for info on grep</a>
 </p>
 
 <h3>Solution:</h3>
-<p>I first sorted the data.txt so that uniq would work better if the duplicate lines are not adjacent to each other and then
-  piped the output to uniq -u to find the unique line.
+<p>I first outputted data.txt to get an idea of the file contents. Then, for searching, I outputted data.txt and had
+  strings retrieve all the printable strings and then searched through all the printable strings for instances of = 
+  to locate the password.
 </p>
 <p align = "center">
-  <img src="https://user-images.githubusercontent.com/70291944/183829087-dc0d6b9f-748f-47c7-993b-9f6216150d7b.png" width="100%" height="100%">
+  <img src="https://user-images.githubusercontent.com/70291944/183837809-2166c09c-6f26-4f4d-90ef-607521e9d1cf.png" width="100%" height="100%">
 </p>
 <details>
   <summary><strong>Click here to reveal level credentials:<strong></summary>
-  <p>Username: bandit9
-    <br>Password:UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+  <p>Username: bandit10
+    <br>Password:truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
   </p>
 </details>
 
 <h3>Resources</h3>
-<p>Uniq flags and examples:: 
-  <a href= "https://www.redhat.com/sysadmin/uniq-command-lists">https://www.redhat.com/sysadmin/uniq-command-lists</a>
-  <br>Pipe :
-  <a href= "https://www.geeksforgeeks.org/piping-in-unix-or-linux/#:~:text=A%20pipe%20is%20a%20form,program%2Fprocess%20for%20further%20processing
-">https://www.geeksforgeeks.org/piping-in-unix-or-linux/</a>
+<p>String command, how to use, examples: 
+  <a href= "https://www.howtogeek.com/427805/how-to-use-the-strings-command-on-linux">https://www.howtogeek.com/427805/how-to-use-the-strings-command-on-linux</a>
+</p>
+<!-- Level 9-10: Section End --> 
+    
+<!-- Level 10-11: Section Beginning -->
+<h2 id="level_10-11">Level 10 → 11: Decoding base64 inputs</h2>
+<p>The password for the next level is stored in the file data.txt, which contains base64 encoded data</p>
+  
+<h3>Notes:</h3>
+<p>What is base64 base64?: binary to a text encoding scheme that represents binary data in an ASCII string format
+  The base64 command:  base64 encode/decode data and print to standard output
+</p>
+
+<h3>Solution:</h3>
+<p>I used cat to output the contents of data.txt and piped it to base64 —decode to decode the data</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183838345-1fd81e83-a8c6-48b5-8489-fa157fa96a73.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit11
+    <br>Password:IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>Base64 documentation: 
+  <a href= "https://linux.die.net/man/1/base64">https://linux.die.net/man/1/base64</a>
+  <br>What is base64:
+  <a href= "https://levelup.gitconnected.com/what-is-base64-encoding-4b5ed1eb58a4?gi=79c7ff3d9347
+">https://levelup.gitconnected.com/what-is-base64-encoding-4b5ed1eb58a4?gi=79c7ff3d9347</a>
 </p>
 <!-- Level 9-10: Section End --> 
     
