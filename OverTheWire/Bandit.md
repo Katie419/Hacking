@@ -476,7 +476,7 @@ grep [option] [file]
   <br>I ouputted the file contents and redirected it to tr to translate from rot13 using the parameters described in intro to rot13
 </p>
 <p align = "center">
-  <img src="https://user-images.githubusercontent.com/70291944/183838345-1fd81e83-a8c6-48b5-8489-fa157fa96a73.png" width="100%" height="100%">
+  <img src="https://user-images.githubusercontent.com/70291944/183964319-1531785a-b17a-4fcc-964b-60f68d62cc46.png" width="100%" height="100%">
 </p>
 <details>
   <summary><strong>Click here to reveal level credentials:</strong></summary>
@@ -507,8 +507,9 @@ grep [option] [file]
   <br>
   <br>Commands used:
   <ul>
-    <li>cp</li>
-    <li>mv</li>
+    <li>mkdir: makes a new directory</li>
+    <li>cp: copies a file</li>
+    <li>mv: can be used to move or rename file</li>
     <li>xxd</li>
     <li>tar</li>
     <li>bzip2</li>
@@ -516,18 +517,128 @@ grep [option] [file]
   </ul>
 </p>
 <h3>Solution:</h3>
-<p>
-  Just from the description fo their being rotation by 13 positions, I can guess that the data is encrypted using ROT13, so  I would use tr to translate that.
+<p>First I made a directory in tmp, so I can work on data.txt from there. This is needed because I do not have permission to create files in tmp and the home directory, but I would have permission to create files in the new directory.
   <br>
-  <br>I ouputted the file contents and redirected it to tr to translate from rot13 using the parameters described in intro to rot13
+  <br>I copied data.txt into that directory using the format:
 </p>
+```bash
+cp [source_file] [file_you_want_to_copy_contents_to_or_the_path_to_it]
+```
 <p align = "center">
-  <img src="https://user-images.githubusercontent.com/70291944/183838345-1fd81e83-a8c6-48b5-8489-fa157fa96a73.png" width="100%" height="100%">
+  <img src="https://user-images.githubusercontent.com/70291944/183966219-d05651f9-41a9-4bae-a848-5cfcef74a0bc.png" width="100%" height="100%">
+</p>
+<p>I then reverted the hexdump using xxd and its -r(reverse) flag which would output the reverted version in a file I named bandit</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183966755-94584cb7-3212-4402-9919-2db586d8ec3b.png" width="100%" height="100%">
+</p>
+<p>Then I used the file command to see the file contents and how it was compressed</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183971570-188ed1e4-4ae1-4a79-879a-d9293fb1c721.png" width="100%" height="100%">
+</p>
+<p>I see that it is compressed using gzip. Files compressed by gzip have the gz file extension. I added this extension by renaming the file using mv:</p>
+
+```bash
+mv format : mv [source file name] [new name]
+```
+
+<p>Then I unzipped the file using the gzip command and its decode flag(-d):</p>
+
+```bash
+gzip format: gzip [options] [file]
+```
+
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183976125-413e7c92-717d-4aad-b224-a989b05a341e.png" width="100%" height="100%">
+</p>
+<p>After the file is decompressed, I use the file command to see if it is still compressed.</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183976615-22f004d6-c49f-4831-bd59-2b40d38ad065.png" width="100%" height="100%">
+</p>
+<p>After the file is decompressed, I use the file command to see if it is still compressed. I can see that the file was compressed using bzip2. So, I would need to repeat the process I used to uzip the file when it was compressed using gzip, except there would be a few minor changes. I would need to change the file name extension to bz2 and I would unzip it using the bzip2 command and its -d(decode) flag. The bzip2 command format is about the same as the gzip command format</p>
+
+```bash
+bzip2 format:
+bzip2 [options] [file]
+```
+
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183978826-455531d4-f239-47e2-947c-4aa1880fc304.png" width="100%" height="100%">
+</p>
+<p>Then, I checked the contents of bandit again to see if it is still compressed</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183978826-455531d4-f239-47e2-947c-4aa1880fc304.png" width="100%" height="100%">
+</p>
+<p>The file is still compressed using gzip. From here the process to decompress the data is repetitive. You would continue the process of checking if the file content is compressed, renaming the file, and then decompressing the files until you find data that is not compressed</p>
+<p>At some point, you will find notice that the content type is tar, which is an archive file which can contain files.</p>
+
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183981098-1a2a0ce6-a1e2-49bb-afb4-3da89aa90bb9.png" width="100%" height="100%">
+</p>
+
+<p> You will need to extract a file from bandit by renaming the file to have the tar extension and then extracting using tar -x. I used the -v flag for verbose and -f for file. </p>
+
+```bash
+tar format:
+tar [options] [filename]
+
+Note: For commands, you can combine the single character flags instead of typing them out individually
+tar -x -v -f [filename]
+is the same as
+tar -xvf
+```
+
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183984976-27bc446b-35f2-4d2f-b0bf-beadb543f43f.png" width="100%" height="100%">
+</p>
+<p>The rest of this challenge is reptitive. From here you go back to checking if the file is compressed and renaming and decompressing the file if it is still decompressed. Repeat this until you finally get ASCII when you use file to check the file contents. From there, cat the file to see the credentials</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183986605-a02c0c83-6670-4df8-9424-579d3f68efc9.png" width="100%" height="100%">
 </p>
 <details>
   <summary><strong>Click here to reveal level credentials:</strong></summary>
   <p>Username: bandit13
     <br>8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+  </p>
+</details>
+<h3>Resources</h3>
+<p>xxd:
+  <a href= "https://www.tutorialspoint.com/unix_commands/xxd.htm">https://www.tutorialspoint.com/unix_commands/xxd.htm</a>
+  <br>tar:
+  <a href= "https://linuxize.com/post/how-to-extract-unzip-tar-gz-file">https://linuxize.com/post/how-to-extract-unzip-tar-gz-file</a>
+  <br>bz2:
+  <a href= "https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bz">https://www.tecmint.com/linux-compress-decompress-bz2-files-using-bz</a>
+  <br>gzip:
+  <a href= "https://linuxize.com/post/gzip-command-in-linux/">https://linuxize.com/post/gzip-command-in-linux/</a>
+  <br>mv:
+  <a href= "https://www.geeksforgeeks.org/mv-command-linux-examples/">https://www.geeksforgeeks.org/mv-command-linux-examples/</a>
+</p>
+<br>
+<a href="#table">Go back to table of contents</a>
+<!-- Level 12-13: Section End -->
+
+<!-- Level 13-14: Section Beginning -->
+<h2 id="level_13-14">Level 13 → 14: SSH login with SSH keys</h2>
+<p>The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+</p>
+<h3>Notes:</h3>
+<p>An ssh key can be used instead of a password. It works similar to an id as the cryptographic keys are stored in a text file that cannot be read or edited by anyone else.
+</p>
+
+```bash
+ssh authentication key login format:
+ssh -i [authentication key] [user]@[host]
+```
+
+<h3>Solution:</h3>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183989575-9abf49c9-4931-4a17-946c-043fb20572ad.png" width="100%" height="100%">
+</p>
+<p>Note: Save the password you find in bandit14</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:</strong></summary>
+  <p>Username: bandit14
+    <br>Password:use the sshkey.private
+    <br>Note: Save this password: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
   </p>
 </details>
 <h3>Resources</h3>
@@ -540,7 +651,7 @@ grep [option] [file]
 </p>
 <br>
 <a href="#table">Go back to table of contents</a>
-<!-- Level 12-13: Section End -->
+<!-- Level 11-12: Section End -->
     
 <!-- Take user to top -->
 <hr>
