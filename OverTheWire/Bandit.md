@@ -1,5 +1,5 @@
 
-<h1>Bandit Writeup</h1>
+<h1 id="top">Bandit Writeup</h1>
 
 Link to the site :
 <a href="https://overthewire.org/wargames/bandit">https://overthewire.org/wargames/bandit</a>
@@ -15,15 +15,46 @@ Link to the site :
 <h2 id="TOC">Table of Contents</h2>
 <ul>
   <li>
-    <a href="#level0">Level 0: SSH login</a>
+    <a href="#level_0">Level 0: SSH login</a>
   </li>
   <li>
-    <a href="#level0-1">Level 0 → 1: List and concatenate</a>
+    <a href="#level_0-1">Level 0 → 1: List and concatenate</a>
   </li>
+  <li>
+    <a href="#level_1-2">Level 1 → 2: Concatenate files with dash in name</a>
+  </li>
+  <li>
+    <a href="#level_2-3">Level 2 → 3: Concatenate files with spaces in name</a>
+  </li>
+  <li>
+    <a href="#level_3-4">Level 3 → 4: List hidden files</a>
+  </li>
+  <li>
+    <a href="#level_4-5">Level 4 → 5: checking file content type</a>
+  </li>
+  <li>
+    <a href="#level_5-6">Level 5 → 6 : Finding files using parameters</a>
+  </li>
+  <li>
+    <a href="#level_6-7">Level 6 → 7 : Finding files with user and group parameters</a>
+  </li>
+  <li>
+    <a href="#level_7-8">Level 7 → 8: Finding text within file</a>
+  </li>
+  <li>
+    <a href="#level_8-9">Level 8 → 9 : Finding unique lines</a>
+  </li>
+  <li>
+    <a href="#level_9-10">Level 9 → 10: Searching for readable strings
+  </li>
+  <li>
+    <a href="#level_10-11">Level 10 → 11: Decoding base64 inputs
+  </li>
+</ul>
 
 
-<!-- Level 0 -->
-<h2 id="level0">Level 0: SSH login</h2>
+<!-- Level 0: Section Beginning -->
+<h2 id="level_0">Level 0: SSH login</h2>
 <p>The goal of this level is for you to log into the game using SSH. The host to which you need to connect is 
   bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the 
   Level 1 page to find out how to beat Level 1.<p>
@@ -40,12 +71,23 @@ Link to the site :
   <li>ssh user@host_ip [options]</li>
 </ul>
 
+```
+ssh [options] [user]@[host_ip]
+
+or
+
+ssh [user]@[host_ip] [options]
+
+To see ssh options:
+man ssh
+```
+
 <h3>Solution:</h3>
 <p>To log into the game server, I log into ssh, using the format above. My user would be bandit0 and my host would be 
   bandit.labs.overthewire.org. Since a port is specified in the directions, I used the -p flag to specify the host port I want to log in to.
 </p>
 <p align = "center">
-<img src="https://user-images.githubusercontent.com/70291944/183766584-5ecbb880-cc4b-4777-8fe8-def9991494a7.png" width="100%" height="100%">
+<img src="https://user-images.githubusercontent.com/70291944/183810241-9a5ffec1-7789-40ca-a3d5-c74ccad931b5.png" width="100%" height="100%">
 </p>
 
 <h3>Resources</h3>
@@ -55,25 +97,36 @@ Link to the site :
 <p>More SSH info:
   <a href="https://www.ssh.com/academy/ssh/command">https://www.ssh.com/academy/ssh/command</a>
 </p>
+<!-- Level 0: Section End -->
 
-<!-- Level 0-1 -->
-<h2 id="level0-1">Level 0 → 1: List and concatenate</h2>
+<!-- Level 0-1: Section Beginning -->
+<h2 id="level_0-1">Level 0 → 1: List and concatenate</h2>
 <p>The password for the next level is stored in a file called readme located in the home directory. Use this password to
 log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
 </p>
   
 <h3>Notes:</h3>
 <p>ls : command is used to list files and directories
-<br>cat : command is generally used to read and output file contents on the terminal. It is a versatile command as it allows users to copy,
-concatenate, create, and append files
+  <br>cat : command is generally used to read and output file contents on the terminal. It is a versatile command as it allows users to copy,
+  concatenate, create, and append files
+  <br>Format:
 </p>
+
+```bash
+ls:
+ls [options]
+
+cat:
+cat [options] [filename]
+```
+
 
 <h3>Solution:</h3>
 <p>First thing I did is take a look at what is in my current directory, using ls to list all the files and directories in it. I notice that
  there is a read me and display its contents using cat
 </p>
 <p align = "center">
-<img src="https://user-images.githubusercontent.com/70291944/183774429-d7323e8f-01d5-40a4-bce0-585d09d966b1.png" width="100%" height="100%">
+<img src="https://user-images.githubusercontent.com/70291944/183810363-a49d9a85-cc44-4d50-bd56-58880065200b.png" width="100%" height="100%">
 </p>
 <details>
   <summary><strong>Click here to reveal level credentials:<strong></summary>
@@ -85,15 +138,362 @@ concatenate, create, and append files
 <h3>Resources</h3>
 <p>cat command documentation, flags, examples, and uses:
   <a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/">https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/</a>
-</p>
-<p>ls command documentation, flags, examples, and uses:
+  <br>ls command documentation, flags, examples, and uses:
   <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
 </p>
+<!-- Level 0-1: End -->
   
- <!-- Level 1-2 -->
+<!-- Level 1-2: Section Beginning -->
+<h2 id="level_1-2">Level 1 → 2: Concatenate files with dash in name</h2>
+<p>The password for the next level is stored in a file called - located in the home directory</p>
+  
+<h3>Notes:</h3>
+<p>There are multiple ways to display contents of file named  “-”:</p>
+    
+```bash
+Delimiting:
+cat ./[filename]
 
+Redirection:
+cat < [filename]
 
+```
 
+<h3>Solution:</h3>
+<p>First thing I did is take a look at what is in my current directory, using ls to list all the files and directories in it. I notice that
+ there is a read me and display its contents using cat
+</p>
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/70291944/183809716-3113a8cd-0ad8-4c4a-b781-1d3164058efb.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit2
+    <br>Password:CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>Working with file named with a dash "-" :
+  <a href= "https://www.webservertalk.com/dashedfilename#:~:text=Open%20and%20Read%20Filename%20Starting%20with%20Dash&text=Try%20'cat%20%2D%2Dhelp'%20for,before%20the%20dash%20(%2D)%20file.&text=cat%20%3C%20%2Dfilename-,You%20should%20get%20the%20following,Hi%20How%20Are%20You%3F">https://www.webservertalk.com/dashed-filename</a>
+</p>
+<!-- Level 1-2: Section End -->
+
+<!-- Level 2-3: Section Beginning -->
+<h2 id="level_2-3">Level 2 → 3: Concatenate files with spaces in their names</h2>
+<p>The password for the next level is stored in a file called spaces in this filename located in the home directory
+</p>
+  
+<h3>Notes:</h3>
+<p>Two ways to cat files with spaces in names or special characters:</p>
+    
+```bash
+Enclose file name in ' ' or " " so it treats the file name as a single string:
+cat "filename"
+cat 'filename'
+
+Use backslash(\) in front of a special character or space so that the terminal will treat the special character or 
+space as a normal character:
+cat filename\ with\ spaces
+```
+
+<h3>Solution:</h3>
+<p>I used each of the methods described above to get the flag.</p>
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/70291944/183816464-a8094911-0424-4433-9dce-d4219bc6b24f.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit3
+    <br>Password:UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>Working with files with space in their names :
+  <a href= "https://www.putorius.net/filenames-that-contain-spaces-or.html">https://www.webservertalk.com/dashed-filename</a>
+</p>
+<!-- Level 2-3: Section End -->
+    
+<!-- Level 3-4: Section Beginning -->
+<h2 id="level_3-4">Level 3 → 4 : List hidden files
+<p>The password for the next level is stored in a hidden file in the inhere directory.</p>
+  
+<h3>Notes:</h3>
+<p>Commands used and their formats:</p>
+    
+```bash
+The -a flag lists all entries in the directory:
+ls -a 
+
+cd is used to change the current working directory:
+cd [file_path or filename if you are already in its directory]
+```
+
+<h3>Solution:</h3>
+<p>First I moved to inhere using cd to change directories. Then I used ls to see what is in my current directory. 
+There appeared to be nothing inside the inhere directory until I used the -a flag to show all entries inside the file. Then, I output the file contents for the password.
+</p>
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/70291944/183817525-8ffd5d19-fc0a-4d77-8d31-70d04ebdb1c0.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit4
+    <br>Password:pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>ls command documentation, flags, examples, and uses:
+  <a href= "https://www.putorius.net/filenames-that-contain-spaces-or.html">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
+</p>
+<!-- Level 3-4: Section End -->
+    
+<!-- Level 4-5: Section Beginning -->
+<h2 id="level_4-5">Level 4 → 5 : Checking file content type</h2>
+<p>The password for the next level is stored in the only human-readable file in the inhere directory.
+Tip: if your terminal is messed up, try the “reset” command.
+</p>
+  
+<h3>Notes:</h3>
+<p>Commands used and their formats:</p>
+    
+```bash
+file format:
+file [file_name]
+
+To list file types for all the files in a directory:
+file ./*
+```
+
+<h3>Solution:</h3>
+<p>When I first navigate to the inhere directory and list its contents, there are seven files. To help narrow things down 
+  when it comes to finding readable files, I use the file command. Based on what the command tells me, only one file is in ASCII, 
+  which I know includes the alphabet, numbers, and special characters. ASCII is human readable, so this might be it. I check the 
+  file contents by using cat, and then the password is revealed.
+</p>
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/70291944/183819060-1f9cc834-c2b5-4cfe-a927-92bb9e510364.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit5
+    <br>Password:koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>file command information, flags, examples, and uses:
+  <a href= "https://linuxize.com/post/linux-file-command/">https://linuxize.com/post/linux-file-command/</a>
+</p>
+<!-- Level 4-5: Section End -->
+
+<!-- Level 5-6: Section Beginning -->
+<h2 id="level_5-6">Level 5 → 6 : Finding files using parameters</h2>
+<p>The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+    <ul>
+      <li>human-readable</li>
+      <li>1033 bytes in size</li>
+      <li>not executable</li>
+    </ul>
+</p>
+  
+<h3>Notes:</h3>
+<p>Commands used and their formats:
+<br>find: looks for a file based on parameters given in options
+<br>find flags used:
+<br>-readable : find readable files
+<br>-size : find file based on size, format is find -size [file_size][size_suffix]
+<br>-executable : find executable files
+<br>! : put in front of parameter to indicate that you do not want files with that parameter
+<br>To see more parameters and options for the file command, type man find
+</p>
+
+<h3>Solution:</h3>
+<p>find -readable -size 1033c ! -executable
+</p>
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/70291944/183821578-640f5d13-4be6-4b40-afc1-b3e1f5036526.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit6
+    <br>Password:DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>find command documentation, flags, examples, and uses: 
+  <a href= "https://www.ibm.com/docs/en/i/7.4?topic=directories-find">https://www.ibm.com/docs/en/i/7.4?topic=directories-find</a>
+  <br>find examples:
+  <a href= "https://www.tecmint.com/35-practical-examples-of-linux-find-command/">https://www.tecmint.com/35-practical-examples-of-linux-find-command/</a>
+  <br>find non executable file
+  <a href= "https://stackoverflow.com/questions/70539901/how-can-i-find-all-non-executable-files-in-a-directory-in-linux">https://stackoverflow.com/questions/70539901/how-can-i-find-all-non-executable-files-in-a-directory-in-linux</a>
+  <br>find -size suffixes
+   <a href= "https://linuxconfig.org/how-to-use-find-command-to-search-for-files-based-on-file-size">https://linuxconfig.org/how-to-use-find-command-to-search-for-files-based-on-file-size</a>
+</p>
+<!-- Level 5-6: Section End -->
+
+<!-- Level 6-7: Section Beginning -->
+<h2 id="level_6-7">Level 6 → 7 : Finding files with user and group parameters</h2>
+<p>The password for the next level is stored somewhere on the server and has all of the following properties:
+    <ul>
+      <li>owned by user bandit7</li>
+      <li>owned by group bandit6</li>
+      <li>33 bytes in size</li>
+    </ul>
+</p>
+  
+<h3>Notes:</h3>
+<p>Find command flags and formats:</p>
+      
+```bash
+size flag:
+find  -size [file_size][size_suffix]
+
+user flags:
+find -user [username]
+
+group flags:
+find -group [group_name]
+```
+
+<h3>Solution:</h3>
+<p>For this level we want to search the entire server. To indicate that we find to search the entire server,
+  we use / so that find can search the entire server then we set the search parameters using -size [file_size][size_suffix],
+  -user [username], and -group [group_name]. This helps narrow things down significantly. Notice how bandit7.password does not
+  have a permission denied, so let’s try outputting the file at that location to see if it has the password.
+</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183825278-56b8ed4c-cf4b-48ec-a322-2135ffc47cbb.png" width="100%" height="100%">
+  <img src="https://user-images.githubusercontent.com/70291944/183825583-b929283b-9bf4-42f6-b44a-12494d99478d.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit7
+    <br>Password:HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>find command documentation, flags, examples, and uses: 
+  <a href= "https://www.ibm.com/docs/en/i/7.4?topic=directories-find">https://www.ibm.com/docs/en/i/7.4?topic=directories-find</a>
+  <br>find examples:
+  <a href= "https://www.tecmint.com/35-practical-examples-of-linux-find-command/">https://www.tecmint.com/35-practical-examples-of-linux-find-command/</a>
+  <br>Serverwide search:
+  <a href= "https://www.cyberciti.biz/faq/how-do-i-search-my-linuxunix-server-for-a-file/
+">https://www.cyberciti.biz/faq/how-do-i-search-my-linuxunix-server-for-a-file/</a>
+  <br>find -size suffixes
+   <a href= "https://linuxconfig.org/how-to-use-find-command-to-search-for-files-based-on-file-size">https://linuxconfig.org/how-to-use-find-command-to-search-for-files-based-on-file-size</a>
+</p>
+<!-- Level 6-7: Section End -->  
+
+<!-- Level 7-8: Section Beginning -->
+<h2 id="level_7-8">Level 7 → 8: Finding text within file</h2>
+<p>The password for the next level is stored in the file data.txt next to the word millionth</p>
+  
+<h3>Notes:</h3>
+<p>grep : used to find text or strings within a given file</p>
+      
+```bash
+grep [option] [file]
+```
+
+<h3>Solution:</h3>
+<p> I used grep “millionth” to search for the line the password is on.</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183827432-06789d77-b08d-4d22-8498-888d3aa9c5a1.png" width="100%" height="100%">
+  <img src="https://user-images.githubusercontent.com/70291944/183827469-8ede01a2-dba0-43d3-8f3e-bfb530f7a29c.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit8
+    <br>Password:cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>grep command documentation, flags, examples, and uses: 
+  <a href= "https://www.ibm.com/docs/en/i/7.4?topic=data-grep">https://www.ibm.com/docs/en/i/7.4?topic=data-grep</a>
+  <br>grep examples:
+  <a href= "https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/">https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/</a>
+</p>
+<!-- Level 7-8: Section End --> 
+
+<!-- Level 8-9: Section Beginning -->
+<h2 id="level_8-9">Level 8 → 9 : Finding unique lines</h2>
+<p>The password for the next level is stored in the file data.txt and is the only line of text that occurs only once</p>
+  
+<h3>Notes:</h3>
+<p>Uniq can be used to find duplicate lines or unique ones. Though does not detect duplicate lines if they are not adjacent to
+  each other, so you may have to sort first for better results.
+<br>
+<br>| (pipe) : redirects, it sends the output of a command to another destination
+</p>
+
+<h3>Solution:</h3>
+<p>I first sorted the data.txt so that uniq would work better if the duplicate lines are not adjacent to each other and then
+  piped the output to uniq -u to find the unique line.
+</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183829087-dc0d6b9f-748f-47c7-993b-9f6216150d7b.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit9
+    <br>Password:UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>Uniq flags and examples:: 
+  <a href= "https://www.redhat.com/sysadmin/uniq-command-lists">https://www.redhat.com/sysadmin/uniq-command-lists</a>
+  <br>Pipe :
+  <a href= "https://www.geeksforgeeks.org/piping-in-unix-or-linux/#:~:text=A%20pipe%20is%20a%20form,program%2Fprocess%20for%20further%20processing
+">https://www.geeksforgeeks.org/piping-in-unix-or-linux/</a>
+</p>
+<!-- Level 8-9: Section End --> 
+
+<!-- Level 9-10: Section Beginning -->
+<h2 id="level_9-10">Level 9 → 10: Searching for readable strings</h2>
+<p>The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.</p>
+  
+<h3>Notes:</h3>
+<p>strings: retrieves any printable strings
+  <br>Look at notes in:
+  <ul>
+    <li>
+      <a href="#top">Go back to the top</a>
+     
+</p>
+
+<h3>Solution:</h3>
+<p>I first sorted the data.txt so that uniq would work better if the duplicate lines are not adjacent to each other and then
+  piped the output to uniq -u to find the unique line.
+</p>
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/70291944/183829087-dc0d6b9f-748f-47c7-993b-9f6216150d7b.png" width="100%" height="100%">
+</p>
+<details>
+  <summary><strong>Click here to reveal level credentials:<strong></summary>
+  <p>Username: bandit9
+    <br>Password:UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+  </p>
+</details>
+
+<h3>Resources</h3>
+<p>Uniq flags and examples:: 
+  <a href= "https://www.redhat.com/sysadmin/uniq-command-lists">https://www.redhat.com/sysadmin/uniq-command-lists</a>
+  <br>Pipe :
+  <a href= "https://www.geeksforgeeks.org/piping-in-unix-or-linux/#:~:text=A%20pipe%20is%20a%20form,program%2Fprocess%20for%20further%20processing
+">https://www.geeksforgeeks.org/piping-in-unix-or-linux/</a>
+</p>
+<!-- Level 9-10: Section End --> 
+    
+<!-- Take user to top -->
+<hr>
+<a href="#top">Go back to the top</a>
 
 
 
