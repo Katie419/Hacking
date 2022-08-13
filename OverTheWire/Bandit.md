@@ -96,7 +96,13 @@ bandit.labs.overthewire.org. Since a port is specified in the directions, I used
     Format:
 </p>
 
-```bash ls: ls [options] cat: cat [options] [filename] ```
+```bash 
+ls: 
+ls [options] 
+
+cat:
+cat [options] [filename] 
+```
 
 <h3>Solution:</h3>
 <p>First thing I did is take a look at what is in my current directory, using ls to list all the files and directories in it. I notice that there is a read me and display its contents using cat</p>
