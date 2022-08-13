@@ -85,25 +85,38 @@ bandit.labs.overthewire.org. Since a port is specified in the directions, I used
 		
 <!-- Level 0-1: Section Beginning -->
 <h2 id="level_0-1">Level 0 → 1: List and concatenate</h2>
-<p>The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game. </p>
-		<h3>Notes:</h3>
-		<p>ls : command is used to list files and directories
-			<br>cat : command is generally used to read and output file contents on the terminal. It is a versatile command as it allows users to copy, concatenate, create, and append files
-			<br>Format: </p> ```bash ls: ls [options] cat: cat [options] [filename] ```
-		<h3>Solution:</h3>
-		<p>First thing I did is take a look at what is in my current directory, using ls to list all the files and directories in it. I notice that there is a read me and display its contents using cat </p>
-		<p align="center"> <img src="https://user-images.githubusercontent.com/70291944/183810363-a49d9a85-cc44-4d50-bd56-58880065200b.png" width="100%" height="100%"> </p>
-		<details>
-			<summary><strong>Click here to reveal level credentials:</strong></summary>
-  <p>Username: bandit1
-    <br>Password:boJ9jbbUNNfktd78OOpsqOltutMc3MY1
-  </p>
+<p>
+    The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level
+    and continue the game.
+</p>
+<h3>Notes:</h3>
+<p>
+    ls : command is used to list files and directories <br />
+    cat : command is generally used to read and output file contents on the terminal. It is a versatile command as it allows users to copy, concatenate, create, and append files <br />
+    Format:
+</p>
+
+```bash ls: ls [options] cat: cat [options] [filename] ```
+
+<h3>Solution:</h3>
+<p>First thing I did is take a look at what is in my current directory, using ls to list all the files and directories in it. I notice that there is a read me and display its contents using cat</p>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/70291944/183810363-a49d9a85-cc44-4d50-bd56-58880065200b.png" width="100%" height="100%" />
+</p>
+<details>
+    <summary><strong>Click here to reveal level credentials:</strong></summary>
+    <p>
+        Username: bandit1 <br />
+        Password:boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+    </p>
 </details>
 <h3>Resources</h3>
-<p>cat command documentation, flags, examples, and uses:
-  <a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/">https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/</a>
-  <br>ls command documentation, flags, examples, and uses:
-  <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
+<p>
+    cat command documentation, flags, examples, and uses:
+    <a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/">https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/</a>
+    <br>
+    ls command documentation, flags, examples, and uses:
+    <a href="https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command">https://www.ibm.com/docs/zh/aix/7.1?topic=l-ls-command</a>
 </p>
 <br>
 <a href="#table">Go back to table of contents</a>
