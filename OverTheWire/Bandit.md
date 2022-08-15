@@ -52,8 +52,7 @@ help [command_name]
 <h2 id="level_0">Level 0: SSH login</h2>
 <p>The goal of this level is for you to log into the game using SSH. The host to which you need to connect is
     bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go
-    to the
-    Level 1 page to find out how to beat Level 1.
+    to the Level 1 page to find out how to beat Level 1.
 <p>
 <h3>Notes:</h3>
 <p>SSH(Secure Shell):</p>
@@ -99,8 +98,7 @@ man ssh
 <p>
     The password for the next level is stored in a file called readme located in the home directory. Use this password
     to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that
-    level
-    and continue the game.
+    level and continue the game.
 </p>
 <h3>Notes:</h3>
 <p>
@@ -162,8 +160,7 @@ cat < [filename]
 
 <h3>Solution:</h3>
 <p>First thing I did is take a look at what is in my current directory, using ls to list all the files and
-    directories in it. I notice that
-    there is a read me and display its contents using cat
+    directories in it. I notice that there is a read me and display its contents using cat
 </p>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/70291944/183809716-3113a8cd-0ad8-4c4a-b781-1d3164058efb.png"
@@ -273,12 +270,9 @@ file ./*
 ```
 <h3>Solution:</h3>
 <p>When I first navigate to the inhere directory and list its contents, there are seven files. To help narrow things
-    down
-    when it comes to finding readable files, I use the file command. Based on what the command tells me, only one
-    file is in ASCII,
-    which I know includes the alphabet, numbers, and special characters. ASCII is human readable, so this might be
-    it. I check the
-    file contents by using cat, and then the password is revealed.
+    down when it comes to finding readable files, I use the file command. Based on what the command tells me, only one
+    file is in ASCII, which I know includes the alphabet, numbers, and special characters. ASCII is human readable, so this might be
+    it. I check the file contents by using cat, and then the password is revealed.
 </p>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/70291944/183819060-1f9cc834-c2b5-4cfe-a927-92bb9e510364.png"
