@@ -758,15 +758,7 @@ ssh -i [authentication key] [user]@[host]
     </p>
 </details>
 <h3>Resources</h3>
-<p>tr command:
-    <a href="https://linuxize.com/post/linux-tr-command/">https://linuxize.com/post/linux-tr-command/</a>
-    <br>Intro to rot13:
-    <a
-        href="https://medium.com/@piyush.kochhar1/rot13-a-missing-guide-c811427cfe6e">https://medium.com/@piyush.kochhar1/rot13-a-missing-guide-c811427cfe6e</a>
-    <br>List to held decode ROT-3 to ROT-25:
-    <a
-        href="https://www.chmag.in/articles/momsguide/decoding-rot-using-the-echo-and-tr-commands-in-your-linux-terminal/">https://www.chmag.in/articles/momsguide/decoding-rot-using-the-echo-and-tr-commands-in-your-linux-terminal/</a>
-</p>
+
 <br>
 <a href="#table">Go back to table of contents</a>
 <!-- Level 11-12: Section End -->
