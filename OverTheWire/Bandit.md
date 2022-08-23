@@ -607,9 +607,11 @@ grep [option] [file]
     <br>
     <br>I copied data.txt into that directory using the format:
 </p>
+
 ```bash
 cp [source_file] [file_you_want_to_copy_contents_to_or_the_path_to_it]
 ```
+
 <p align="center">
     <img src="https://user-images.githubusercontent.com/70291944/183966219-d05651f9-41a9-4bae-a848-5cfcef74a0bc.png"
         width="100%" height="100%">
